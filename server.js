@@ -6,10 +6,10 @@ const apiRoutes = require("./routes/api");
 const mainRoutes = require("./routes/main");
 const connectDB = require("./config/database");
 const passport = require("passport")
-const flash = require('express-flash')
+
 const session = require('express-session')
 const cors = require('cors')
-app.use(flash());
+
 app.use(
   cors({
     origin: true,
