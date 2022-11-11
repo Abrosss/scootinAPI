@@ -105,7 +105,7 @@ module.exports = {
 
   },
   postRides: async (req, res) => {
-
+console.log(req.params)
   
     try {
         let id = req.params.id

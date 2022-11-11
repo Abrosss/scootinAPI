@@ -9,5 +9,5 @@ router.post("/:id/changeUsername", authController.postChangeUsername)
 
 router.get("/users/:email", authController.getUsers);
 router.post("/signup", authController.postSignup);
-router.post("/google-signup", authController.postSignup);
+router.post("/google-signup", authController.postGoogleSignup);
 module.exports = router;

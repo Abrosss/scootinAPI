@@ -205,15 +205,19 @@ exports.postGoogleSignup = async (req, res) => {
 
       //check if username exists
       const emailExists = await User.findOne({email:req.body.email})
-      if(usernameExists) 
-      res.status(200).send(usernameExists) 
+      if(emailExists) {
+        console.log(emailExists)
+        res.status(200).send(emailExists) 
  
+      }
+      
       //CREATE USER
      
       let user = new User({
        username:username, 
        email:email,
       location:"",
+      password:"googleauth"
 
 
 
