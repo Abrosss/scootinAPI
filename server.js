@@ -50,6 +50,8 @@ require('./config/passport')(passport)
           res.locals.user = req.user || null
           next();
         })
+
+
 const requireAuth = (req, res, next) => {
   const {user} = req.session;
   if(!user) {

@@ -29,7 +29,6 @@ exports.getUsers = (req, res) => {
     console.log(user)})
 };
 exports.postLogin = (req, res, next) => {
-  console.log(req.body)
   const {error} = loginValidation(req.body)
   if(error) return res.status(400).send(error.details[0].message)
 
@@ -188,6 +187,34 @@ exports.postSignup = async (req, res) => {
        email:email,
         location:"",
        password:hashPassword
+
+
+   })
+
+            //SAVE USER
+     try{
+       const savedUser = await user.save()
+       res.status(200).send(req.user)
+   } catch(err){
+       res.status(400).send(err)
+   }
+};
+exports.postGoogleSignup = async (req, res) => {
+  let email = req.body.email
+  let username = req.body.username
+
+      //check if username exists
+      const emailExists = await User.findOne({email:req.body.email})
+      if(usernameExists) 
+      res.status(200).send(usernameExists) 
+ 
+      //CREATE USER
+     
+      let user = new User({
+       username:username, 
+       email:email,
+      location:"",
+
 
 
    })
