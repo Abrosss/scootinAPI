@@ -13,6 +13,7 @@ const registerValidation =(data, confirm_password) =>{
 }
 
 const loginValidation =(data) =>{
+    console.log(data)
     const schema = Joi.object({
         email:Joi.string().email().required(),
         password:Joi.string().required()
